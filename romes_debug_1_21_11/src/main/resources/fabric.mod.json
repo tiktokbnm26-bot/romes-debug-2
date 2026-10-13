@@ -1,0 +1,28 @@
+{
+  "schemaVersion": 1,
+  "id": "romesdebug",
+  "version": "1.2.0",
+  "name": "Rome's Debug",
+  "description": "Seed-based chunk finder (Meteor addon + /romes commands).",
+  "authors": ["romes"],
+  "license": "MIT",
+  "icon": "assets/romesdebug/icon.png",
+  "environment": "client",
+  "entrypoints": {
+    "client": [
+      "net.romes.romesdebug.RomesDebugClient"
+    ],
+    "meteor": [
+      "net.romes.romesdebug.RomesAddon"
+    ]
+  },
+  "custom": {
+    "meteor-client:color": "230,30,30"
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "fabric-api": "*",
+    "minecraft": "~1.21.11",
+    "meteor-client": "*"
+  }
+}

@@ -1,0 +1,42 @@
+plugins {
+    id 'fabric-loom' version '1.14-SNAPSHOT'
+    id 'maven-publish'
+}
+
+version = '1.2.0'
+group = 'net.romes'
+
+base {
+    archivesName = 'romesdebug'
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        name = "meteor-maven"
+        url = "https://maven.meteordev.org/releases"
+    }
+    maven {
+        name = "meteor-maven-snapshots"
+        url = "https://maven.meteordev.org/snapshots"
+    }
+}
+
+dependencies {
+    minecraft "com.mojang:minecraft:1.21.11"
+    mappings "net.fabricmc:yarn:1.21.11+build.3:v2"
+    modImplementation "net.fabricmc:fabric-loader:0.18.1"
+    modImplementation "net.fabricmc.fabric-api:fabric-api:0.141.6+1.21.11"
+
+    // Meteor Client 1.21.11 (your install runs 1.21.11-86)
+    modImplementation "meteordevelopment:meteor-client:1.21.11-SNAPSHOT"
+}
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_21
+    targetCompatibility = JavaVersion.VERSION_21
+}
+
+tasks.withType(JavaCompile).configureEach {
+    it.options.release = 21
+}
